@@ -2,7 +2,7 @@
 
 Simple LTI integration example application.
 
-All LTI related code can be found in the [LTIController](https://github.com/feature86/lti-example/blob/master/src/Controller/LTIController.php).
+All LTI related code can be found in the [LTIController](https://github.com/feature86/lti-example/blob/main/src/Controller/LTIController.php).
 
 ### Quick start
 
