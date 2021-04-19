@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BizQuiz LTI{% endblock %}
+{% block title %}NILS LTI{% endblock %}
 
 {% block stylesheets %}<style>
 p.info {
@@ -65,19 +65,36 @@ p.info {
     </div>
   </div>
   <hr />
-  <h3>BizQuiz Custom Parameters</h3>
+  <h3>NILS Custom Parameters</h3>
   <div class="row">
     <div class="columns">
-      <label for="customGroupsInput">Groups (optional) <code>array&lt;VARCHAR(255)&gt;</code> <i>custom_groups</i></label>
-      <p class="info">A comma-separated list of all groups to which the user is to be added. Note that the same language must always be used for the group names, regardless of the user language. Groups that do not yet exist in the BizQuiz will be created.</p>
-      <input name="customGroups" class="u-full-width" type="text" placeholder="Learner, Novice" id="customGroupsInput" value="{{ customGroups }}">
+      <label for="customCompanyNameInput">Company Name (optional) <code>VARCHAR(32)</code> <i>custom_company_name</i></label>
+      <input name="customCompanyName" class="u-full-width" type="text" placeholder="Bionic Beaver" id="customCompanyNameInput" value="{{ customCompanyName }}">
     </div>
   </div>
   <div class="row">
     <div class="columns">
-      <label for="customTeamInput">Team (optional) <code>VARCHAR(32)</code> <i>custom_team</i></label>
-      <p class="info">Name of the team to which the user is to be added. Non-existing teams are created.</p>
-      <input name="customTeam" class="u-full-width" type="text" placeholder="Bionic Beaver" id="customTeamInput" value="{{ customTeam }}">
+      <label for="customCompanyIdInput">Company Id (optional) <code>VARCHAR(32)</code> <i>custom_company_id</i></label>
+      <input name="customCompanyId" class="u-full-width" type="text" placeholder="Bionic Beaver" id="customCompanyIdInput" value="{{ customCompanyId }}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <label for="customIsCompanySuperiorInput">Company is Superior (optional) <code>VARCHAR(1)</code> <i>custom_is_company_superior</i></label>
+      <input name="customIsCompanySuperior" class="u-full-width" type="text" placeholder="0" id="customIsCompanySuperiorInput" value="{{ customIsCompanySuperior }}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <label for="customAssignedCompanyIdsInput">Groups (optional) <code>array&lt;VARCHAR(255)&gt;</code> <i>custom_groups</i></label>
+      <p class="info">A comma-separated list of all company Ids the user should be able to report</p>
+      <input name="customAssignedCompanyIds" class="u-full-width" type="text" placeholder="12,13" id="customassignedCompanyIdsInput" value="{{ customAssignedCompanyIds }}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <label for="customIsSuperiorInput">is Superior (optional) <code>VARCHAR(1)</code> <i>custom_is_superior</i></label>
+      <input name="customIsSuperior" class="u-full-width" type="text" placeholder="0" id="customIsSuperiorInput" value="{{ customIsSuperior }}">
     </div>
   </div>
   <hr />

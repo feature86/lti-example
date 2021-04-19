@@ -14,9 +14,12 @@ class LTIController extends Controller
         return $this->render('lti/index.html.twig', [
             'consumerKey' => $req->get('consumerKey', ''),
             'sharedSecret' => $req->get('sharedSecret', ''),
-            'launchUrl' => $req->get('launchUrl', 'https://bizquiz.cloud/api/lti'),
-            'customGroups' => $req->get('customGroups', ''),
-            'customTeam' => $req->get('customTeam', ''),
+            'launchUrl' => $req->get('launchUrl', 'https://atlasdev.im-c.cloud/api/login/lti'),
+            'customCompanyName' => $req->get('customCompanyName', ''),
+            'customCompanyId' => $req->get('customCompanyId', ''),
+            'customIsCompanySuperior' => $req->get('customIsCompanySuperior', ''),
+            'customAssignedCompanyIds' => $req->get('customAssignedCompanyIds', ''),
+            'customIsSuperior' => $req->get('customIsSuperior', ''),
             'launchPresentationLocale' => $req->get('launchPresentationLocale', ''),
             'id' => $id === 'random' ? rand(10000, 99999) : $id,
         ]);
@@ -71,6 +74,28 @@ class LTIController extends Controller
         $team = $req->get('customTeam', null);
         if (!empty($team)) {
             $parameters['custom_team'] = $team;
+        }
+        
+        $companyName = $req->get('customCompanyName', null);
+        if (!empty($companyName)) {
+            $parameters['custom_company_name'] = $companyName;
+        }
+        $companyId = $req->get('customCompanyId', null);
+        if (!empty($companyId)) {
+            $parameters['custom_company_id'] = $companyId;
+        }
+        $companyIsSuperior = $req->get('customIsCompanySuperior', null);
+        if (!empty($companyIsSuperior)) {
+            $parameters['custom_is_company_superior'] = $companyIsSuperior;
+        }
+        $assigendCompanyIds = $req->get('customAssignedCompanyIds', null);
+        if (!empty($assigendCompanyIds)) {
+            $parameters['custom_assigned_company_ids'] = $assigendCompanyIds;
+        }
+        
+        $isSuperior = $req->get('customIsSuperior', null);
+        if (!empty($isSuperior)) {
+            $parameters['custom_is_superior'] = $isSuperior;
         }
 
         $oauthSignature = $this->getOAuthSignature($parameters, $req->get('sharedSecret'), $req->get('launchUrl'));
