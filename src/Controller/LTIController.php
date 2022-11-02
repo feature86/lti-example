@@ -20,6 +20,10 @@ class LTIController extends Controller
             'customIsCompanySuperior' => $req->get('customIsCompanySuperior', ''),
             'customAssignedCompanyIds' => $req->get('customAssignedCompanyIds', ''),
             'customIsSuperior' => $req->get('customIsSuperior', ''),
+            'customWorkspaceId' => $req->get('customWorkspaceId', ''),
+            'customCatalogId' => $req->get('customCatalogId', ''),
+            'customSeriesId' => $req->get('customSeriesId', ''),
+            'customTrackId' => $req->get('customTrackId', ''),
             'launchPresentationLocale' => $req->get('launchPresentationLocale', ''),
             'id' => $id === 'random' ? rand(10000, 99999) : $id,
         ]);
@@ -96,6 +100,25 @@ class LTIController extends Controller
         $isSuperior = $req->get('customIsSuperior', null);
         if (!empty($isSuperior)) {
             $parameters['custom_is_superior'] = $isSuperior;
+        }
+        
+        $workspaceId = $req->get('customWorkspaceId', null);
+        if (!empty($workspaceId)) {
+            $parameters['custom_workspace_id'] = $workspaceId;
+        }
+        
+        $catalogId = $req->get('customCatalogId', null);
+        if (!empty($catalogId)) {
+            $parameters['custom_catalog_id'] = $catalogId;
+        }
+        $seriesId = $req->get('customSeriesId', null);
+        if (!empty($seriesId)) {
+            $parameters['custom_series_id'] = $seriesId;
+        }
+        
+        $trackId = $req->get('customTrackId', null);
+        if (!empty($trackId)) {
+            $parameters['custom_track_id'] = $trackId;
         }
 
         $oauthSignature = $this->getOAuthSignature($parameters, $req->get('sharedSecret'), $req->get('launchUrl'));
